@@ -23,8 +23,7 @@ The log files in the dataset you'll be working with are partitioned by year and 
 > log_data/2018/11/2018-11-13-events.json  
 
 And below is an example of what the data in a log file, 2018-11-12-events.json, looks like.  
-![Log data file](E://Nitin_Stuff//analytics//Udacity//Udacity_DEND//Data%20Engineering%20Projects//Project%201%20Data%20Modeling%20with%20Postgres//log-data.png "Log data file")  
-
+![Log data file](log-data.png "Log data file")  
 
 #### Schema for Song Play Analysis
 Using the song and log datasets, you'll need to create a star schema optimized for queries on song play analysis. This includes the following tables.  
@@ -71,4 +70,4 @@ Follow instructions in the **etl.ipynb** notebook to develop ETL processes for e
 Use what you've completed in **etl.ipynb** to complete **etl.py**, where you'll process the entire datasets. Remember to run **create_tables.py** before running **etl.py** to reset your tables. Run **test.ipynb** to confirm your records were successfully inserted into each table.
 
 And below is the songs ERD.  
-![Song ERD file](E://Nitin_Stuff//analytics//Udacity//Udacity_DEND//Data%20Engineering%20Projects//Project%201%20Data%20Modeling%20with%20Postgres//Song_ERD.png "Song ERD file")  
+![Song ERD file](Song_ERD.png "Song ERD file")  
