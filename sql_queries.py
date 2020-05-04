@@ -114,6 +114,16 @@ VALUES
 )
 """)
 
+# FIND SONGS
+
+song_select = ("""
+SELECT s.song_id, a.artist_id 
+FROM songs s
+JOIN artists a
+ON (s.artist_id = a.artist_id) 
+WHERE (s.title = %s AND a.artist_name = %s AND s.duration = %s)
+""")
+
 # QUERY LISTS
 
 create_table_queries = [songplay_table_create, user_table_create, song_table_create, artist_table_create, time_table_create]
