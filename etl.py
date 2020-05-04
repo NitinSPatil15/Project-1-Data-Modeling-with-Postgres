@@ -82,6 +82,35 @@ def process_log_file(cur, filepath):
         cur.execute(songplay_table_insert, songplay_data)
 
 
+"""Processing one file at a time and losding data into corresponding tables
+
+    This procedure processes a song or log file whose filepath has been provided as an arugment at a time by calling corresponding functions.
+
+    INPUTS:
+    * cur the cursor variable
+    * conn the database connection variable
+    * filepath the file path to the song file
+    * func the func variable which can be either process_song_file or process_log_file
+"""
+def process_data(cur, conn, filepath, func):
+    # get all files matching extension from directory
+    all_files = []
+    for root, dirs, files in os.walk(filepath):
+        files = glob.glob(os.path.join(root,'*.json'))
+        for f in files :
+            all_files.append(os.path.abspath(f))
+
+    # get total number of files found
+    num_files = len(all_files)
+    print('{} files found in {}'.format(num_files, filepath))
+
+    # iterate over files and process
+    for i, datafile in enumerate(all_files, 1):
+        func(cur, datafile)
+        conn.commit()
+        print('{}/{} files processed.'.format(i, num_files))
+
+
 def main():
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
